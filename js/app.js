@@ -1,5 +1,5 @@
 var catViewModel = function(){
-	        this.name = ko.observable("Pelope");
+	      this.name = ko.observable("Pelope");
             this.imageSrc = ko.observable("img/cat1.jpg"); 
             this.clickCount = ko.observable(0);
 
@@ -15,6 +15,12 @@ var catViewModel = function(){
             			return "New Born";
             		};
             },this);
+// implement array of nicknames for the cats -- a usecase for controlflow structures 
+            this.nicknames = ko.observableArray([
+                   "Kattie",
+                   "Golden",
+                   "Tammy"
+                  ]);
 };
 
 ko.applyBindings(new catViewModel());
