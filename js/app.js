@@ -26,7 +26,7 @@ var catViewModel = function(){
 	      
 // increment click count each time a cat image is clicked
             this.incrementCounter = function(){
-                 this.currentCat().clickCount(this.currentCat().clickCount()+1);
+                 this.clickCount(this.clickCount()+1);
             };
 
 

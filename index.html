@@ -6,15 +6,16 @@
 </head>
 <body>
     <ul id="cat-list"></ul>
-    <div id="cat">
+    <div id="cat" data-bind="with: currentCat">
 
-        <h2 id="cat-name" data-bind="text: currentCat().name"></h2>
-        <div> Clicks : <span id="cat-count" data-bind="text: currentCat().clickCount"></span></div>
-        <div> Level : <span data-bind="text: currentCat().level"></span></div>
-        <img id="cat-img" src="" alt="cute cat" data-bind="click: incrementCounter, attr: { src: currentCat().imageSrc}">
+        <h2 id="cat-name" data-bind="text: name"></h2>
+        <div> Clicks : <span id="cat-count" data-bind="text: clickCount"></span></div>
+        <div> Level : <span data-bind="text: level"></span></div>
+        <!-- since incrementCounter is not a function of currentCat (our with: parameter) but modelView, we  use $parent to bind incrementCounter to modelView -->
+        <img id="cat-img" src="" alt="cute cat" data-bind="click: $parent.incrementCounter, attr: { src: imageSrc}">
         <div>
             <h4>Nicknames :</h4>
-            <ul data-bind="foreach: currentCat().nicknames">
+            <ul data-bind="foreach: nicknames">
                 <li data-bind="text: $data"> </li>
             </ul>
         </div>
